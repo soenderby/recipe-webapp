@@ -9,6 +9,10 @@
           ]
         }
       ],
-      "@babel/preset-react"
+      "@babel/preset-react",
+      "next/babel"
+    ],
+    "plugins": [
+        "@babel/plugin-transform-runtime"
     ]
-  }
+}

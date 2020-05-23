@@ -1,11 +1,27 @@
 import React from 'react';
 import render from 'riteway/render-component';
 import { describe } from 'riteway';
-import { reducer, addInstructions } from '../../reducers/recipe-reducer';
+import { reducer, addInstructions, addIngredient } from '../../reducers/recipe-reducer';
+
+const createRecipe=({
+  instructions = '',
+  ingredients = []
+} = {}) => ({
+  instructions, ingredients
+});
+
+const createIngredient=({
+  name = '',
+  amount = ''
+} = {}) =>({
+  name, amount 
+})
+
 
 describe('recipe reducer', async assert => {
   const initialState = {
-    instructions: ''
+    instructions: '',
+    ingredients: []
   }
 
   assert({
@@ -16,18 +32,61 @@ describe('recipe reducer', async assert => {
   });
 
   assert({
-    given: 'inital state and addRecipe action without parameters',
+    given: 'inital state and addInstructions action without parameters',
     should: 'return the initial state',
     actual: reducer(initialState, addInstructions()),
     expected: initialState
   });
 
   assert({
-    given: 'initial state and a addRecipe action with text',
+    given: 'initial state and addInstructions action with text',
+    should: 'replace the text in the instructions',
+    actual: reducer(
+      createRecipe({instructions: 'instructions to override'}),
+      addInstructions('whisk eggwhites until they form peaks')
+      ),
+    expected: Object.assign(createRecipe(), {instructions: 'whisk eggwhites until they form peaks'})
+  });
+
+  assert({
+    given: 'instructions and addInstructions action with text',
     should: 'assign the text to the instructions',
     actual: reducer(initialState, addInstructions('whisk eggwhites until they form peaks')),
-    expected: { instructions: 'whisk eggwhites until they form peaks' }
+    expected: Object.assign(createRecipe(), {instructions: 'whisk eggwhites until they form peaks'})
   });
+
+  assert({
+    given: 'initial state and addIngredient action without parameters',
+    should: 'add empty ingredient to array',
+    actual: reducer(initialState, addIngredient()),
+    expected: Object.assign(createRecipe(), {ingredients: [createIngredient()]})
+  });
+
+  {
+    const testIngredient = createIngredient({name: 'Test Ingredient', amount: 'Lots'});
+
+    assert({
+      given: 'initial state and addIngredient action with ingredient',
+      should: 'add empty ingredient to array',
+      actual: reducer(initialState, addIngredient(testIngredient)),
+      expected: Object.assign(createRecipe(), {ingredients: [testIngredient]})
+    });
+  }
+
+  {
+    const testIngredient1 = createIngredient({name: 'Test Ingredient', amount: 'Lots'});
+    const testIngredient2 = createIngredient({name: 'Test Ingredient two', amount: 'almost as much'});
+
+    assert({
+      given: 'new ingredient and addIngredient action with ingredient',
+      should: 'add new ingredient to array',
+      actual: reducer(
+        createRecipe({ingredients: [testIngredient1]}),
+        addIngredient(testIngredient2)
+      ),
+      expected: Object.assign(createRecipe(), {ingredients: [testIngredient1, testIngredient2]})
+    });
+  }
 
 })
 

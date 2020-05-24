@@ -1,7 +1,7 @@
 import React from 'react';
 import render from 'riteway/render-component';
 import { describe } from 'riteway';
-import InstructionsArea from '../../components/createRecipeComponents/instructions-area';
+import InstructionsArea from '../../../components/createRecipeComponents/instructions-area';
 
 describe('InstructionsArea Component ', async assert => {
   const createArea = instructions => render(<InstructionsArea text={ instructions } />);

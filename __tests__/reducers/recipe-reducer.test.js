@@ -1,22 +1,6 @@
-import React from 'react';
-import render from 'riteway/render-component';
 import { describe } from 'riteway';
 import { reducer, addInstructions, addIngredient } from '../../reducers/recipe-reducer';
-
-const createRecipe=({
-  instructions = '',
-  ingredients = []
-} = {}) => ({
-  instructions, ingredients
-});
-
-const createIngredient=({
-  name = '',
-  amount = ''
-} = {}) =>({
-  name, amount 
-})
-
+import { createRecipe, createIngredient } from '../testUtils/recipe-reducer-factories';
 
 describe('recipe reducer', async assert => {
   const initialState = {
@@ -78,7 +62,7 @@ describe('recipe reducer', async assert => {
     const testIngredient2 = createIngredient({name: 'Test Ingredient two', amount: 'almost as much'});
 
     assert({
-      given: 'new ingredient and addIngredient action with ingredient',
+      given: 'ingredient and addIngredient action with ingredient',
       should: 'add new ingredient to array',
       actual: reducer(
         createRecipe({ingredients: [testIngredient1]}),

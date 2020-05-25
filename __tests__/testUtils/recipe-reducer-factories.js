@@ -6,10 +6,11 @@ const createRecipe=({
 });
 
 const createIngredient=({
+  id = 0,
   name = '',
   amount = ''
 } = {}) =>({
-  name, amount 
+  id, name, amount
 })
 
 export {

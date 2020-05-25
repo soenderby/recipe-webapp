@@ -20,7 +20,7 @@ describe('create-recipe page', async assert => {
 
     assert({
       given: 'nothing',
-      should: 'render submit-button textarea',
+      should: 'render submit-button',
       actual: $('.submit-button').length,
       expected: 1
     });

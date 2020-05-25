@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default ({ text }) => 
+export default ({ text, onChange }) => 
   <>
-    <textarea className='recipe-instructions' value={ text } />
+    <textarea className='recipe-instructions' value={ text } onChange={ onChange } />
   </>
 ;

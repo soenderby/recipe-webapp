@@ -2,6 +2,7 @@
 const ADD_INSTRUCTIONS = 'RECIPE/ADD_INSTRUCTIONS';
 const ADD_INGREDIENT = 'RECIPE/ADD_INGREDIENT';
 const REMOVE_INGREDIENT = 'RECIPE/REMOVE_INGREDIENT';
+const CHANGE_INGREDIENT = 'RECIPE/CHANGE_INGREDIENT'
 
 const defaultState = {
   instructions: '',
@@ -28,6 +29,11 @@ const removeIngredient = (id) => ({
   payload: id
 });
 
+const changeIngredient = (id, {name = '', amount = ''}) => ({
+  type: CHANGE_INGREDIENT,
+  payload: { id: id, name: name, amount: amount }
+});
+
 const reducer = (state = defaultState, action = {}) => {
   const { type, payload } = action;
   switch (type) {
@@ -41,7 +47,20 @@ const reducer = (state = defaultState, action = {}) => {
       return Object.assign({}, state, {
         ingredients: state.ingredients.filter( ingredient => ingredient.id != payload )
       });
-
+    case CHANGE_INGREDIENT:
+      return Object.assign({}, state, {
+        // Quite a bit of logic, consider moving to new function
+        ingredients: state.ingredients.map( 
+          ingredient => {
+            return ingredient.id === payload.id ? 
+              Object.assign({}, ingredient, {
+                name: payload.name === '' ? ingredient.name : payload.name,
+                amount: payload.amount === '' ? ingredient.amount : payload.amount
+              }) 
+              :
+              ingredient
+          })
+      });
     default: return state;
   }
 };
@@ -50,5 +69,6 @@ export {
   addInstructions,
   addIngredient,
   removeIngredient,
+  changeIngredient,
   reducer
 };

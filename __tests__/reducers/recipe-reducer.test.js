@@ -1,6 +1,8 @@
 import { describe } from 'riteway';
-import { reducer, addInstructions, addIngredient, removeIngredient } from '../../reducers/recipe-reducer';
+import { reducer, addInstructions, addIngredient, removeIngredient, changeIngredient } from '../../reducers/recipe-reducer';
 import { createRecipe, createIngredient } from '../testUtils/recipe-reducer-factories';
+
+// Consider splitting tests into multiple files
 
 describe('recipe reducer', async assert => {
   const initialState = {
@@ -101,6 +103,79 @@ describe('recipe reducer', async assert => {
         removeIngredient(2)
       ),
       expected: Object.assign(createRecipe(), {ingredients: [testIngredient1]})
+    });
+  }
+
+  // Change ingredient
+  {
+    const testIngredient = createIngredient({id: 1, name: 'Test Ingredient', amount: 'Lots'});
+
+    assert({
+      given: 'single ingredient and changeIngredient action with id, name, and amount',
+      should: 'change ingredient',
+      actual: reducer(
+        createRecipe({ingredients: [testIngredient]}),
+        changeIngredient(1, {name: 'changedName', amount: 'changedAmount'})
+      ),
+      expected: Object.assign(
+        createRecipe(),
+        {ingredients: [createIngredient({id: 1, name: 'changedName', amount: 'changedAmount'})]}
+      )
+    });
+  }
+
+  {
+    const testIngredient1 = createIngredient({id: 1, name: 'Test Ingredient', amount: 'Lots'});
+    const testIngredient2 = createIngredient({id: 2, name: 'Test Ingredient two', amount: 'almost as much'});
+
+    assert({
+      given: 'ingredients and changeIngredient action with id, name, and amount',
+      should: 'change only ingredient with given id',
+      actual: reducer(
+        createRecipe({ingredients: [testIngredient1, testIngredient2]}),
+        changeIngredient(2, {name: 'changedName', amount: 'changedAmount'})
+      ),
+      expected: Object.assign(
+        createRecipe(),
+        {ingredients: [
+          testIngredient1,
+          createIngredient({id: 2, name: 'changedName', amount: 'changedAmount'})
+        ]}
+      )
+    });
+  }
+
+  {
+    const testIngredient = createIngredient({id: 1, name: 'Test Ingredient', amount: 'Lots'});
+
+    assert({
+      given: 'single ingredient and changeIngredient action with id and name',
+      should: 'change only ingredient name',
+      actual: reducer(
+        createRecipe({ingredients: [testIngredient]}),
+        changeIngredient(1, {name: 'changedName'})
+      ),
+      expected: Object.assign(
+        createRecipe(),
+        {ingredients: [createIngredient({id: 1, name: 'changedName', amount: 'Lots'})]}
+      )
+    });
+  }
+
+  {
+    const testIngredient = createIngredient({id: 1, name: 'Test Ingredient', amount: 'Lots'});
+
+    assert({
+      given: 'single ingredient and changeIngredient action with id and amount',
+      should: 'change only ingredient amount',
+      actual: reducer(
+        createRecipe({ingredients: [testIngredient]}),
+        changeIngredient(1, {amount: 'changed amount'})
+      ),
+      expected: Object.assign(
+        createRecipe(),
+        {ingredients: [createIngredient({id: 1, name: 'Test Ingredient', amount: 'changed amount'})]}
+      )
     });
   }
 

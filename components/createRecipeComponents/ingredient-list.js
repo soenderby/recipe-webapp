@@ -9,8 +9,8 @@ export default ({ ingredients = [], onChange, onRemove }) =>
         <IngredientInput 
           name={ingredient.name}
           amount={ingredient.amount}
-          onChange={ partial(onChange, [index]) }
-          onRemove={ () => onRemove(index) }
+          onChange={ partial(onChange, [index + 1]) }
+          onRemove={ () => onRemove(index + 1) }
         />
       )
     }

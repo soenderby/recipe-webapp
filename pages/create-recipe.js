@@ -1,8 +1,17 @@
 import React, { useReducer } from 'react';
-import { reducer, addInstructions, addIngredient, removeIngredient, changeIngredient, changeName,  } from '../reducers/recipe-reducer';
+import {
+  reducer,
+  addInstructions,
+  addIngredient,
+  removeIngredient,
+  changeIngredient,
+  changeName
+} from '../reducers/recipe-reducer';
 import InstructionArea from '../components/createRecipeComponents/instructions-area';
 import IngredientList from '../components/createRecipeComponents/ingredient-list';
 import LabeledInput from '../components/createRecipeComponents/labeled-input';
+import { getEventValue } from '../lib/utils';
+import { compose } from 'ramda';
 
 const initialState = {
   name: '',
@@ -21,11 +30,22 @@ const [recipe, dispatch] = useReducer(reducer, initialState);
     <LabeledInput 
       labelText = { 'Recipe name: ' }
       inputText = { recipe.name }
-      onChange = { text => dispatch(changeName(text)) }
+      onChange = { text => 
+        compose(
+          dispatch,
+          changeName,
+          getEventValue,
+        )(text)
+      }
     />
     <InstructionArea
       text={ recipe.instructions }
-      onChange={ text => dispatch(addInstructions(text)) }
+      onChange={ text => 
+        compose(
+          dispatch,
+          addInstructions,
+          getEventValue,
+        )(text) }
     />
     <IngredientList
       ingredients={ recipe.ingredients }

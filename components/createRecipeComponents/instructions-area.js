@@ -2,6 +2,6 @@ import React from 'react';
 
 export default ({ text, onChange }) => 
   <>
-    <textarea className='recipe-instructions' value={ text } onChange={ e => onChange( e.target.value ) } />
+    <textarea className='recipe-instructions' value={ text } onChange={ e => onChange(e)} />
   </>
 ;

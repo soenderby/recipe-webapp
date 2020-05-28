@@ -5,6 +5,6 @@ export default ({ labelText = '', inputText = '', onChange }) =>
     <label className='text-label'>
       { labelText }
     </label>
-    <input className='text-input' value={ inputText } onChange={ onChange }/>
+    <input className='text-input' value={ inputText } onChange={ e => onChange(e.target.value) }/>
   </div>
 ;

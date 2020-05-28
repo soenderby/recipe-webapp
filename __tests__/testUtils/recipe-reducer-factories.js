@@ -1,8 +1,9 @@
 const createRecipe=({
+  name = '',
   instructions = '',
   ingredients = []
 } = {}) => ({
-  instructions, ingredients
+  name, instructions, ingredients
 });
 
 const createIngredient=({

@@ -1,11 +1,19 @@
 import { describe } from 'riteway';
-import { reducer, addInstructions, addIngredient, removeIngredient, changeIngredient } from '../../reducers/recipe-reducer';
+import { 
+  reducer,
+  addInstructions,
+  addIngredient,
+  removeIngredient,
+  changeIngredient,
+  changeName
+} from '../../reducers/recipe-reducer';
 import { createRecipe, createIngredient } from '../testUtils/recipe-reducer-factories';
 
 // Consider splitting tests into multiple files
 
 describe('recipe reducer', async assert => {
   const initialState = {
+    name: '',
     instructions: '',
     ingredients: []
   }
@@ -178,6 +186,28 @@ describe('recipe reducer', async assert => {
       )
     });
   }
+
+  // Change name
+  assert({
+    given: 'initial state and changeName action without parameters',
+    should: 'return initial state',
+    actual: reducer(initialState, changeName()),
+    expected: initialState
+  });
+
+  assert({
+    given: 'initial state and changeName action with text',
+    should: 'change name to given text',
+    actual: reducer(initialState, changeName('test')),
+    expected: Object.assign(createRecipe(), {name: 'test'})
+  });
+
+  assert({
+    given: 'recipe with name and changeName action with text',
+    should: 'change name to given text',
+    actual: reducer(createRecipe({name: 'anotherName'}), changeName('test')),
+    expected: createRecipe({name: 'test'})
+  });
 
 })
 

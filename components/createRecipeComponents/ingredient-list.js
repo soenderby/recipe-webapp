@@ -7,6 +7,7 @@ export default ({ ingredients = [], onChange, onRemove }) =>
     {
       ingredients.map( (ingredient, index)  => 
         <IngredientInput 
+          key={ index }
           name={ingredient.name}
           amount={ingredient.amount}
           onChange={ partial(onChange, [index + 1]) }

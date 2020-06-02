@@ -4,7 +4,6 @@ import {
   getLastElement,
   addElementToList 
 } from '../../lib/utils';
-import { createRecipe } from '../testUtils/recipe-reducer-factories';
 
 const createEvent = (value) => ({ target: { value: value }});
 

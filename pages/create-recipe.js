@@ -22,6 +22,7 @@ const initialState = {
   ]
 }
 
+// Need to remove all empty ingredients before submitting.
 export default () => {
   const [recipe, dispatch] = useReducer(reducer, initialState);
 

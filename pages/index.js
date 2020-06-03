@@ -1,9 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
+import Layout from '../components/layout';
 
 export default function Home() {
   return (
-    <>
+    <Layout>
       <div className="foo">Welcome to the Recipe Webapp!</div>
       <br/>
       <p>
@@ -15,6 +16,6 @@ export default function Home() {
       </p>
       
       <p></p>
-    </>
+    </Layout>
   );
 }

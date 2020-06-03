@@ -7,11 +7,13 @@ import {
   changeIngredient,
   changeName
 } from '../reducers/recipe-reducer';
+import Layout from '../components/layout';
 import InstructionArea from '../components/createRecipeComponents/instructions-area';
 import IngredientList from '../components/createRecipeComponents/ingredient-list';
 import LabeledInput from '../components/createRecipeComponents/labeled-input';
 import { getEventValue, getLastElement } from '../lib/utils';
 import { compose, curry, last } from 'ramda';
+import layout from '../components/layout';
 
 const initialState = {
   name: '',
@@ -36,7 +38,7 @@ export default () => {
   }
 
   return (
-  <>
+  <Layout>
     <LabeledInput 
       labelText = { 'Recipe name: ' }
       inputText = { recipe.name }
@@ -70,6 +72,6 @@ export default () => {
       onRemove={ id => dispatch(removeIngredient(id)) }
     />
     <button className='submit-button'>Submit Recipe</button>
-  </>
+  </Layout>
   );
 };

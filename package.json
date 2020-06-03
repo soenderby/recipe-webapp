@@ -9,7 +9,10 @@
     "test": "riteway -r @babel/register -r @babel/polyfill __tests__/**/*.test.js | tap-nirvana "
   },
   "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "babel-plugin-module-name-mapper": "^1.2.0",
     "next": "9.4.2",
+    "node-sass": "^4.14.1",
     "ramda": "^0.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

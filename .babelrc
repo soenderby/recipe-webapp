@@ -13,6 +13,14 @@
       "next/babel"
     ],
     "plugins": [
-        "@babel/plugin-transform-runtime"
+        "@babel/plugin-transform-runtime",
+        [
+          "module-name-mapper",
+          {
+              "moduleNameMapper": {
+                //  "\\.scss$": "<rootDir>/helpers/style-mock.js"
+              }
+          }
+      ]
     ]
 }

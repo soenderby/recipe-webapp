@@ -31,7 +31,8 @@ const removeIngredient = (id) => ({
   payload: id
 });
 
-const changeIngredient = (id, {name = '', amount = ''}) => ({
+// Removed default parameters to enable changing to empty string
+const changeIngredient = (id, {name, amount}) => ({
   type: CHANGE_INGREDIENT,
   payload: { id: id, name: name, amount: amount }
 });
@@ -62,8 +63,8 @@ const reducer = (state = defaultState, action = {}) => {
           ingredient => {
             return ingredient.id === payload.id ? 
               Object.assign({}, ingredient, {
-                name: payload.name === '' ? ingredient.name : payload.name,
-                amount: payload.amount === '' ? ingredient.amount : payload.amount
+                name: payload.name === undefined ? ingredient.name : payload.name,
+                amount: payload.amount === undefined ? ingredient.amount : payload.amount
               }) 
               :
               ingredient

@@ -1,8 +1,8 @@
 import React from 'react';
 import render from 'riteway/render-component';
 import { describe } from 'riteway';
-import IngredientList from '../../components/createRecipeComponents/ingredient-list';
-import { createIngredient } from '../testUtils/recipe-reducer-factories';
+import IngredientList from '../../../components/createRecipeComponents/ingredient-list';
+import { createIngredient } from '../../testUtils/recipe-reducer-factories';
 
 const createIngredientList = ({ ingredients = [] }) => render(<IngredientList ingredients = { ingredients } onChange={() => ''} onRemove={() => ''}/>);
 

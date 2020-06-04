@@ -187,6 +187,40 @@ describe('recipe reducer', async assert => {
     });
   }
 
+  {
+    const testIngredient = createIngredient({id: 1, name: 'T', amount: 'Lots'});
+
+    assert({
+      given: 'single ingredient and changeIngredient changing name to empty',
+      should: 'change name to empty',
+      actual: reducer(
+        createRecipe({ingredients: [testIngredient]}),
+        changeIngredient(1, {name: ''})
+      ),
+      expected: Object.assign(
+        createRecipe(),
+        {ingredients: [createIngredient({id: 1, name: '', amount: 'Lots'})]}
+      )
+    });
+  }
+
+  {
+    const testIngredient = createIngredient({id: 1, name: 'name', amount: 'L'});
+
+    assert({
+      given: 'single ingredient and changeIngredient changing amount to empty',
+      should: 'change amount to empty',
+      actual: reducer(
+        createRecipe({ingredients: [testIngredient]}),
+        changeIngredient(1, {amount: ''})
+      ),
+      expected: Object.assign(
+        createRecipe(),
+        {ingredients: [createIngredient({id: 1, name: 'name', amount: ''})]}
+      )
+    });
+  }
+
   // Change name
   assert({
     given: 'initial state and changeName action without parameters',

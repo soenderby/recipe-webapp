@@ -19,8 +19,8 @@ const initialState = {
   name: '',
   instructions: '',
   ingredients: [
-    { id: 1, name: 'ingredient name', amount: 'amount' },
-    { id: 2, name: '', amount: '' }
+    { id: 0, name: 'ingredient name', amount: 'amount' },
+    { id: 1, name: '', amount: '' }
   ]
 }
 

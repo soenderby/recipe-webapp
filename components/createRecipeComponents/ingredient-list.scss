@@ -1,0 +1,16 @@
+@import '../../theme/theme';
+
+.ingredient-list {
+  display: flexbox;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 10px 0;
+
+  list-style-type: none;
+  
+  .titels {
+    padding: 5px;
+  }
+}

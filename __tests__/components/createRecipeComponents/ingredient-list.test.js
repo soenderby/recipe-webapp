@@ -54,5 +54,37 @@ describe('IngredientList component', async assert => {
       expected: 3
     });
   }
+  
+  {
+    const $ = createIngredientList([]);
 
+    assert({
+      given: 'nothing',
+      should: 'render ingredient-name-titel component',
+      actual: $('.ingredient-name-titel').length,
+      expected: 1
+    });
+  }
+
+  {
+    const $ = createIngredientList([]);
+
+    assert({
+      given: 'nothing',
+      should: 'render ingredient-amount-titel component',
+      actual: $('.ingredient-amount-titel').length,
+      expected: 1
+    });
+  }
+
+  {
+    const $ = createIngredientList([]);
+
+    assert({
+      given: 'nothing',
+      should: 'render titels component',
+      actual: $('.titels').length,
+      expected: 1
+    });
+  }
 });

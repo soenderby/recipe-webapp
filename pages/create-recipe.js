@@ -60,17 +60,19 @@ export default () => {
           )(text)
       }
     />
-    <IngredientList
-      ingredients={ recipe.ingredients }
-      onChange={ 
-        (id, {name, amount}) => {
-          dispatch(changeIngredient(id, {name: name, amount: amount}));
-          // TODO: recipe is not updated here
-          addEmptyIngredient(recipe.ingredients);
-        }  
-      }
-      onRemove={ id => dispatch(removeIngredient(id)) }
-    />
+    <>
+      <IngredientList
+        ingredients={ recipe.ingredients }
+        onChange={ 
+          (id, {name, amount}) => {
+            dispatch(changeIngredient(id, {name: name, amount: amount}));
+            // TODO: recipe is not updated here
+            addEmptyIngredient(recipe.ingredients);
+          }  
+        }
+        onRemove={ id => dispatch(removeIngredient(id)) }
+      />
+    </>
     <button className='submit-button'>Submit Recipe</button>
   </Layout>
   );

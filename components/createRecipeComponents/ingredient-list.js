@@ -2,8 +2,15 @@ import React from 'react';
 import { partial } from 'ramda';
 import IngredientInput from '../createRecipeComponents/ingredient-input';
 
+import './ingredient-list.scss';
+
 export default ({ ingredients = [], onChange, onRemove }) => 
-  <div className='ingredient-list'>
+  <ul className='ingredient-list'>
+    <li className='titels'>
+      {/* TODO: find a way to align the titels with the inputs */}
+      <label className='ingredient-name-titel'>Ingredient name:</label>
+      <label className='ingredient-amount-titel'>Amount:</label>
+    </li>
     {
       ingredients.map( (ingredient, index)  => 
         <IngredientInput 
@@ -15,5 +22,5 @@ export default ({ ingredients = [], onChange, onRemove }) =>
         />
       )
     }
-  </div>
+  </ul>
 ;

@@ -1,7 +1,7 @@
 import React from 'react';
 import render from 'riteway/render-component';
 import { describe } from 'riteway';
-import IngredientListItem from '../../../components/recipeComponents/ingredient-listItem';
+import IngredientListItem from '../../../components/recipesComponents/ingredient-listItem';
 
 const createIngredientListItem = ({name='', amount=''} = {}) => render(<IngredientListItem name={ name } amount={ amount }/>);
 

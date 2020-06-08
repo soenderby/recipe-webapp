@@ -2,7 +2,8 @@ import { describe } from 'riteway';
 import {
   getEventValue,
   getLastElement,
-  addElementToList 
+  addElementToList,
+  trace 
 } from '../../lib/utils';
 
 const createEvent = (value) => ({ target: { value: value }});
@@ -71,6 +72,29 @@ describe('addElementToList', async assert => {
       should: 'return array ending with given element',
       actual: addElementToList(element, list),
       expected: [...list, element]
+    });
+  }
+});
+
+describe('trace', async assert => {
+  {
+    const value = 1;
+    assert({
+      given: 'a string and a value',
+      should: 'return the given value',
+      actual: trace('a value')(value),
+      expected: value
+    });
+  }
+
+  {
+    const value = 'test value';
+    const partialTrace = trace('a test value');
+    assert({
+      given: 'partial application and a value',
+      should: 'return given value',
+      actual: partialTrace(value),
+      expected: value
     });
   }
 });

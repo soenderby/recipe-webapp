@@ -1,0 +1,18 @@
+@import '../../theme/theme';
+
+.recipe-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin: 15px;
+}
+
+.recipe-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.recipe-name {
+  padding: 2px 16px;
+}
+
+img {
+  width: 100%;
+}

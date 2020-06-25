@@ -15,6 +15,7 @@ describe('recipe card component', async assert => {
     });
   }
 
+  // name
   {
     const $ = render(<RecipeCard/>);
 
@@ -34,6 +35,30 @@ describe('recipe card component', async assert => {
       should: 'render given name',
       actual: $('.recipe-name').html().trim(),
       expected: 'name'
+    });
+  }
+
+  // image
+  {
+    const $ = render(<RecipeCard />);
+
+    assert({
+      given: 'nothing',
+      should: 'render default image',
+      actual: $('.recipe-image').attr('src'),
+      expected: '/noImage.jpg'
+    });
+  }
+
+  {
+    const imageSrc = '/image'
+    const $ = render(<RecipeCard imagePath={ imageSrc }/>);
+
+    assert({
+      given: 'nothing',
+      should: 'render given image',
+      actual: $('.recipe-image').attr('src'),
+      expected: imageSrc
     });
   }
 

@@ -24,8 +24,9 @@ const initialState = {
   ]
 }
 
-// Need to remove all empty ingredients before submitting.
+// TODO: Need to remove all empty ingredients before submitting.
 export default () => {
+  // There is no need for redux, as the state does not need to be shared.
   const [recipe, dispatch] = useReducer(reducer, initialState);
 
   const addEmptyIngredient = (list) => {

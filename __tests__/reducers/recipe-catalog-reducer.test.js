@@ -81,7 +81,7 @@ describe('recipe-catalog reducer', async assert => {
   {
     const recipes = [{name: 'name', imagePath: 'imagePath'}];
     assert({
-      given: 'initial state and addRecipe with array containing single catalog item',
+      given: 'initial state and addRecipes with array containing single catalog item',
       should: 'add recipes to array',
       actual: reducer(initialState, addRecipes(recipes)),
       expected : Object.assign({}, initialState, {recipes: [{ name: 'name', imagePath: 'imagePath' }]})

@@ -19,7 +19,7 @@
           {
               "moduleNameMapper": {
                 // This needs to be in place for testing, but removed for css to work
-                "\\.scss$": "<rootDir>/helpers/style-mock.js"
+                //"\\.scss$": "<rootDir>/helpers/style-mock.js"
               }
           }
       ]

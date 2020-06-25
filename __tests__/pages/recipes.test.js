@@ -9,8 +9,8 @@ describe('recipes page', async assert => {
 
     assert({
       given: 'nothing',
-      should: 'render recipe-list component',
-      actual: $('.recipe-list').length,
+      should: 'render recipe-catalog component',
+      actual: $('.recipe-catalog').length,
       expected: 1
     });
   }

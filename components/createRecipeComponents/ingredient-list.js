@@ -1,6 +1,6 @@
 import React from 'react';
 import { partial } from 'ramda';
-import IngredientInput from '../createRecipeComponents/ingredient-input';
+import IngredientInput from './ingredient-input';
 
 import './ingredient-list.scss';
 

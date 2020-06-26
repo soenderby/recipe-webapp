@@ -6,7 +6,7 @@ import { createIngredient } from '../../testUtils/recipe-reducer-factories';
 
 const createIngredientList = ({ ingredients = [] }) => render(<IngredientList ingredients = { ingredients } onChange={() => ''} onRemove={() => ''}/>);
 
-describe('IngredientList component', async assert => {
+describe('Input IngredientList component', async assert => {
   {
     const $ = createIngredientList([]);
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import './recipe-card.scss';
 
@@ -9,9 +10,11 @@ export default ({ name='', imagePath='' }) => {
   return (
     <div className='recipe-card'>
       <img className='recipe-image' src={ imageSrc } alt={ 'thumbnail for ' + name }/>
-      <label className='recipe-name'>
-        { name }
-      </label>
+      <Link href={ '/' + name }>
+        <a className='recipe-name'>
+          { name }
+        </a>
+      </Link>
     </div>
   )
 };

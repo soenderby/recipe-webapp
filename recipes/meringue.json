@@ -1,0 +1,14 @@
+{
+  "name": "meringue",
+  "instructions": "Whip until it forms peaks",
+  "ingredients": [
+    {
+      "name": "eggwhites",
+      "amount": "4"
+    },
+    {
+      "name": "sugar",
+      "amount": "150 gram"
+    }
+  ]
+}

@@ -38,12 +38,13 @@ describe('recipe card component', async assert => {
     });
   }
 
+  // Link
   {
-    const $ = render(<RecipeCard name={ 'name' }/>);
+    const $ = render(<RecipeCard link={ '/name' }/>);
 
     assert({
-      given: 'a recipe name',
-      should: 'link to page for given name',
+      given: 'a URL for a recipe',
+      should: 'link to given url',
       actual: $('.recipe-name').attr('href'),
       expected: '/name'
     });

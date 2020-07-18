@@ -9,7 +9,7 @@ export default ({ recipes = [] }) =>
     <div className='recipe-catalog'>
       {
         recipes.map(recipe => 
-          <RecipeCard key={ recipe.name } name={ recipe.name }/>
+          <RecipeCard key={ recipe.name } name={ recipe.name } link={ '/' + recipe.name }/>
         )
       }
     </div>

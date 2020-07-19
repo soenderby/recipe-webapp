@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "cross-env NODE_ENV=development next dev",
+    "build": "cross-env NODE_ENV=build next build",
     "start": "next start",
     "test": "cross-env NODE_ENV=test riteway -r @babel/register -r @babel/polyfill __tests__/**/*.test.js | tap-nirvana "
   },

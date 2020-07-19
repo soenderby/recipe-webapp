@@ -16,6 +16,17 @@ describe('profile page', async assert => {
   }
 
   {
+    const $ = render(<Profile/>);
+
+    assert({
+      given: 'nothing',
+      should: 'render user-details component',
+      actual: $('.user-details').length,
+      expected: 1
+    });
+  }
+
+  {
     const recipes = [
       { name: 'recipes1' },
       { name: 'recipes2' }
@@ -35,7 +46,7 @@ describe('profile page', async assert => {
 
     assert({
       given: 'no authored recipes',
-      should: 'npt render authored-recipes component',
+      should: 'not render authored-recipes component',
       actual: $('.authored-recipes').length,
       expected: 0
     })

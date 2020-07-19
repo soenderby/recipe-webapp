@@ -1,27 +1,48 @@
 {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": [
-            "last 2 versions",
-            "safari >= 7"
-          ]
-        }
-      ],
-      "@babel/preset-react",
-      "next/babel"
-    ],
-    "plugins": [
-        "@babel/plugin-transform-runtime",
+  "env": {
+    "development": {
+      "presets": [
         [
-          "module-name-mapper",
+          "@babel/preset-env",
           {
-              "moduleNameMapper": {
-                // This needs to be in place for testing, but removed for css to work
-                "\\.scss$": "<rootDir>/helpers/style-mock.js"
-              }
+            "targets": [
+              "last 2 versions",
+              "safari >= 7"
+            ]
           }
+        ],
+        "@babel/preset-react",
+        "next/babel"
       ]
-    ]
+    },
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": [
+              "last 2 versions",
+              "safari >= 7"
+            ]
+          }
+        ],
+        "@babel/preset-react",
+        "next/babel"
+      ],
+      "plugins": [
+          "@babel/plugin-transform-runtime",
+          [
+            "module-name-mapper",
+            {
+                "moduleNameMapper": {
+                  // This needs to be in place for testing, but removed for css to work
+                  // Fixed it by using "env" here and cross-env for scripts
+                  "\\.scss$": "<rootDir>/helpers/style-mock.js"
+                }
+            }
+        ]
+      ]
+    }
+  }
+    
 }

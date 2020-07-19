@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "riteway -r @babel/register -r @babel/polyfill __tests__/**/*.test.js | tap-nirvana "
+    "test": "cross-env NODE_ENV=test riteway -r @babel/register -r @babel/polyfill __tests__/**/*.test.js | tap-nirvana "
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
@@ -27,6 +27,7 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@babel/register": "^7.9.0",
+    "cross-env": "^7.0.2",
     "riteway": "^6.1.2",
     "tap-nirvana": "^1.1.0"
   }

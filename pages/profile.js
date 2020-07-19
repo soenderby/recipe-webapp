@@ -4,6 +4,9 @@ import RecipeCatalog from '../components/recipesComponents/recipe-catalog';
 
 export default ({ favoriteRecipes=[], authoredRecipes=[] }) => 
   <Layout>
+    <div className='user-details'>
+
+    </div>
     <div className='profile'>
       <div className='favorite-recipes'>
       {

@@ -4,14 +4,11 @@ import Layout from '../components/layout';
 import RecipeCatalog from '../components/recipesComponents/recipe-catalog';
 
 // TODO: Determine if ...props is necessary
-export default ({ recipes }) => {
-  console.log(recipes);
-  return (
-    <Layout>
-      <RecipeCatalog recipes={ recipes }/>
-    </Layout>
-  );
-}
+export default ({ recipes }) => 
+  <Layout>
+    <RecipeCatalog recipes={ recipes }/>
+  </Layout>
+;
 
 export async function getStaticProps() {
   // Get path/id for all recipes or just the ones that should be created at build time

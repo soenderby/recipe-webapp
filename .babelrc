@@ -13,6 +13,9 @@
         ],
         "@babel/preset-react",
         "next/babel"
+      ],
+      "plugins": [
+          "@babel/plugin-transform-runtime"
       ]
     },
     "build": {
@@ -28,6 +31,9 @@
         ],
         "@babel/preset-react",
         "next/babel"
+      ],
+      "plugins": [
+          "@babel/plugin-transform-runtime"
       ]
     },
     "test": {

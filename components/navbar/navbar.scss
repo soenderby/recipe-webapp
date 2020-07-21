@@ -1,6 +1,7 @@
 @import '../../theme/theme';
 
 .navbar {
+  
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -9,22 +10,44 @@
   width: 100%;
   padding: 10px 0;
 
-  background: $secondary-light;
+  //background: $secondary-light;
 
   font-family: $core-font;
   font-size: 22px;
   color: $on-secondary;
+  
+  /*
+  margin: 0 auto;
+  display: block;
+
+  padding: 120px 0 0 0;  
+  text-align: center;
+  font-size: 16px;
+  */
 
   //box-shadow: 0px -2px 15px rgba(50, 50, 50, 0.45);
+  // Navbar css courtesy of Mark_Bell00: https://codepen.io/Mark_Bell00/pen/vYELmNM
   .navbar-button {
     //border-style: solid;
-    border-width: 2px;
-    border-color: $secondary-dark;
+    //border-width: 2px;
+    //border-color: $secondary-dark;
+    list-style: none;
+    margin: 0 auto;
+    border-left: 2px solid #3ca0e7;
+    display: inline-block;
+    padding: 0 30px;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    font-family: arvo;
   }
 
-  a {
-    color: inherit;
-    text-decoration: none;
+  .button-label {
+    color: black;
+  }
+
+  .button-label:hover {
+    color: #3ca0e7;
   }
 
   .active {

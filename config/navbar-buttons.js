@@ -12,5 +12,9 @@ export default [
   {
     label: 'Create Recipe',
     path: '/create-recipe'
+  },
+  {
+    label: 'Profile',
+    path: '/profile'
   }
 ]

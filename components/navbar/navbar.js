@@ -6,13 +6,13 @@ import './navbar.scss';
 export default ({ buttons=[] }) => 
   <div className='navbar'>
     {
-      buttons.map(button => (
+      buttons.map(button => 
         <NavbarButton
           key={button.path}
           path={button.path}
           label={button.label}
         />
-      ))
+      )
     }
   </div>
 ;

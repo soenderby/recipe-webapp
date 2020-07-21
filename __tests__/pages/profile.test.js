@@ -16,17 +16,6 @@ describe('profile page', async assert => {
   }
 
   {
-    const $ = render(<Profile/>);
-
-    assert({
-      given: 'nothing',
-      should: 'render user-details component',
-      actual: $('.user-details').length,
-      expected: 1
-    });
-  }
-
-  {
     const recipes = [
       { name: 'recipes1' },
       { name: 'recipes2' }
@@ -94,9 +83,71 @@ describe('profile page', async assert => {
 
     assert({
       given: 'no authored recipes',
-      should: 'npt render authored-recipes component',
+      should: 'not render authored-recipes component',
       actual: $('.authored-recipes').length,
       expected: 0
+    })
+  }
+
+  // User Details
+  {
+    const $ = render(<Profile/>);
+
+    assert({
+      given: 'nothing',
+      should: 'render user-details component',
+      actual: $('.user-details').length,
+      expected: 1
+    });
+  }
+
+  {
+    const $ = render(<Profile/>)
+
+    assert({
+      given: 'nothing',
+      should: 'render username component',
+      actual: $('.username').length,
+      expected: 1
+    })
+  }
+
+  {
+    const $ = render(<Profile/>)
+
+    assert({
+      given: 'nothing',
+      should: 'render email component',
+      actual: $('.email').length,
+      expected: 1
+    })
+  }
+
+  {
+    const user = {
+      username: 'testUser'
+    };
+    const $ = render(<Profile user={ user }/>)
+
+    assert({
+      given: 'user with username',
+      should: 'render given username',
+      actual: $('.username').html().trim(),
+      expected: user.username
+    })
+  }
+
+  {
+    const user = {
+      email: 'testMail'
+    }
+    const $ = render(<Profile user={ user }/>)
+
+    assert({
+      given: 'user with email',
+      should: 'render given email',
+      actual: $('.email').html().trim(),
+      expected: user.email
     })
   }
 });

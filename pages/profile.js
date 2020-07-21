@@ -2,10 +2,11 @@ import React from 'react';
 import Layout from '../components/layout';
 import RecipeCatalog from '../components/recipesComponents/recipe-catalog';
 
-export default ({ favoriteRecipes=[], authoredRecipes=[] }) => 
+export default ({ user={}, favoriteRecipes=[], authoredRecipes=[] }) => 
   <Layout>
     <div className='user-details'>
-
+      <p className='username'>{ user.username }</p>
+      <p className='email'>{ user.email }</p>
     </div>
     <div className='profile'>
       <div className='favorite-recipes'>

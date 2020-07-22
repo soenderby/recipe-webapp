@@ -1,0 +1,16 @@
+@import '../../theme/theme';
+
+.labeled-text{
+  //display: flex;
+  align-content: space-between;
+  .label{
+    font-weight: bold;
+    margin-bottom: 0px;
+    font-size: smaller;
+  }
+  .text{
+    margin-top: 0px;
+    margin-left: 10px;
+    font-size: small;
+  }
+}

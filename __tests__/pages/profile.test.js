@@ -31,6 +31,21 @@ describe('profile page', async assert => {
   }
 
   {
+    const recipes = [
+      { name: 'recipes1' },
+      { name: 'recipes2' }
+    ]
+    const $ = render(<Profile authoredRecipes={ recipes }/>)
+
+    assert({
+      given: 'a list of autored recipes',
+      should: 'render authored-title component',
+      actual: $('.authored-title').length,
+      expected: 1
+    })
+  }
+
+  {
     const $ = render(<Profile/>)
 
     assert({
@@ -48,6 +63,17 @@ describe('profile page', async assert => {
       given: 'nothing',
       should: 'render favorite-recipes component',
       actual: $('.favorite-recipes').length,
+      expected: 1
+    });
+  }
+
+  {
+    const $ = render(<Profile/>);
+
+    assert({
+      given: 'nothing',
+      should: 'render favorites-title component',
+      actual: $('.favorites-title').length,
       expected: 1
     });
   }
@@ -90,6 +116,7 @@ describe('profile page', async assert => {
   }
 
   // User Details
+  /*
   {
     const $ = render(<Profile/>);
 
@@ -100,6 +127,19 @@ describe('profile page', async assert => {
       expected: 1
     });
   }
+  
+
+  {
+    const $ = render(<Profile/>);
+
+    assert({
+      given: 'nothing',
+      should: 'render title component',
+      actual: $('.title').length,
+      expected: 1
+    });
+  }
+  */
 
   {
     const $ = render(<Profile/>)
@@ -150,4 +190,27 @@ describe('profile page', async assert => {
       expected: user.email
     })
   }
+/*
+  {
+    const $ = render(<Profile/>)
+
+    assert({
+      given: 'nothing',
+      should: 'render username-title component',
+      actual: $('.username-title').length,
+      expected: 1
+    })
+  }
+
+  {
+    const $ = render(<Profile/>)
+
+    assert({
+      given: 'nothing',
+      should: 'render email-title component',
+      actual: $('.email-title').length,
+      expected: 1
+    })
+  }
+  */
 });
